@@ -1,34 +1,10 @@
-pipeline{
-    agent{
-        label "node"
-    }
-    stages{
-        stage("A"){
-            steps{
-                echo "========executing A========"
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Git configure to be use with Jenkins'
             }
-            post{
-                always{
-                    echo "========always========"
-                }
-                success{
-                    echo "========A executed successfully========"
-                }
-                failure{
-                    echo "========A execution failed========"
-                }
-            }
-        }
-    }
-    post{
-        always{
-            echo "========always========"
-        }
-        success{
-            echo "========pipeline executed successfully ========"
-        }
-        failure{
-            echo "========pipeline execution failed========"
         }
     }
 }
